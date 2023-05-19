@@ -97,6 +97,6 @@ Path: /animal/{id}
 Deletes a specific animal based on its ID.
 
 ### Notes ###
-All parameters (name, type, race, and age) are required and must be provided in POST and PATCH requests.
+All parameters (name, type, race, and age) are required and must be provided in POST requests.
 The age parameter should be an integer representing the age of the animal in years.
 In case of missing or invalid data in the requests, the API returns appropriate error messages along with the corresponding HTTP response code.
