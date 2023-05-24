@@ -34,7 +34,6 @@ animal_update_args.add_argument("type", type=str, help="Type of animal")
 animal_update_args.add_argument("race", type=str, help="Race of animal")
 animal_update_args.add_argument("age", type=int, help="Animal age")
 
-animals = {}
 resource_fields = {
     "name": fields.String,
     "type": fields.String,
@@ -46,6 +45,7 @@ resource_fields = {
 class Animals(Resource):
     @marshal_with(resource_fields)
     def get(self):
+
         result = AnimalModel.query.all()
         print(result)
         return result
@@ -92,7 +92,7 @@ class Animal(Resource):
         result = AnimalModel.query.filter_by(id=animal_id).first()
         if not result:
             abort(404, message=f"Could not find animal with id: {animal_id}")
-        del animals[animal_id]
+        del result
         return 202
 
 
